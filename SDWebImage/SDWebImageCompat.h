@@ -45,7 +45,8 @@
 #define SDWISafeRelease(__v) (__v = nil);
 #define SDWISuperDealoc
 
-#define SDWIWeak __unsafe_unretained
+// #define SDWIWeak __unsafe_unretained
+#define SDWIWeak __weak
 #endif
 
 

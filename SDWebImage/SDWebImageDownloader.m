@@ -259,11 +259,13 @@ NSString *const SDWebImageDownloadStopNotification = @"SDWebImageDownloadStopNot
 {
     if ([[aUserInfo valueForKey:@"type"] isEqualToString:@"partial"])
     {
-        [delegate imageDownloader:self didUpdatePartialImage:image];
+        if (delegate != nil)
+            [delegate imageDownloader:self didUpdatePartialImage:image];
     }
     else
     {
-        [delegate performSelector:@selector(imageDownloader:didFinishWithImage:) withObject:self withObject:image];
+        if (delegate != nil)
+            [delegate performSelector:@selector(imageDownloader:didFinishWithImage:) withObject:self withObject:image];
     }
 }
 
